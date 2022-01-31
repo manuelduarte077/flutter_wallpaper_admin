@@ -1,0 +1,54 @@
+name: admin
+description: A new Flutter project.
+
+
+version: 2.6.0+7
+
+environment:
+  sdk: ">=2.10.5 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^0.12.2
+  cupertino_icons: ^0.1.2
+  cloud_firestore: ^0.14.4
+  firebase_core: ^0.5.3
+  intl: ^0.16.1
+  provider: ^4.3.3
+  shared_preferences: ^0.5.12+4
+  cached_network_image: ^2.5.1
+  url_launcher: ^5.7.10
+  vertical_tabs: ^0.2.0
+  toast: ^0.1.5
+  line_icons: ^0.2.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+
+  fonts:
+
+    - family: Muli
+      fonts:
+        - asset: assets/fonts/Muli-Light.ttf
+          weight: 400
+        - asset: assets/fonts/Muli-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/Muli-Medium.ttf
+          weight: 600
+        - asset: assets/fonts/Muli-SemiBold.ttf
+          weight: 700
+        - asset: assets/fonts/Muli-Bold.ttf
+          weight: 800
+
+
+    
+
