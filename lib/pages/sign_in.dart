@@ -56,9 +56,10 @@ class _SignInPageState extends State<SignInPage> {
               borderRadius: BorderRadius.circular(0),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                    color: Colors.grey[300],
-                    blurRadius: 10,
-                    offset: Offset(3, 3))
+                  color: Colors.grey[300],
+                  blurRadius: 10,
+                  offset: Offset(3, 3),
+                )
               ],
             ),
             child: Column(
@@ -80,44 +81,45 @@ class _SignInPageState extends State<SignInPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40),
                   child: Form(
-                      key: formKey,
-                      child: TextFormField(
-                        controller: passwordCtrl,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: 'Enter Password',
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
-                          contentPadding: EdgeInsets.only(right: 0, left: 10),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.grey[300],
-                              child: IconButton(
-                                  icon: Icon(Icons.close, size: 15),
-                                  onPressed: () {
-                                    passwordCtrl.clear();
-                                  }),
-                            ),
+                    key: formKey,
+                    child: TextFormField(
+                      controller: passwordCtrl,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Enter Password',
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                        contentPadding: EdgeInsets.only(right: 0, left: 10),
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 15,
+                            backgroundColor: Colors.grey[300],
+                            child: IconButton(
+                                icon: Icon(Icons.close, size: 15),
+                                onPressed: () {
+                                  passwordCtrl.clear();
+                                }),
                           ),
                         ),
-                        validator: (String value) {
-                          String _adminPassword = ab.adminPass;
-                          if (value.length == 0)
-                            return "Password can't be empty";
-                          else if (value != _adminPassword &&
-                              value != Config().testerPassword)
-                            return 'Wrong Password! Please try again.';
+                      ),
+                      validator: (String value) {
+                        String _adminPassword = ab.adminPass;
+                        if (value.length == 0)
+                          return "Password can't be empty";
+                        else if (value != _adminPassword &&
+                            value != Config().testerPassword)
+                          return 'Wrong Password! Please try again.';
 
-                          return null;
-                        },
-                        onChanged: (String value) {
-                          setState(() {
-                            password = value;
-                          });
-                        },
-                      )),
+                        return null;
+                      },
+                      onChanged: (String value) {
+                        setState(() {
+                          password = value;
+                        });
+                      },
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 30,
@@ -136,9 +138,12 @@ class _SignInPageState extends State<SignInPage> {
                       ]),
                   child: TextButton.icon(
                     style: ButtonStyle(
-                        shape: MaterialStateProperty.resolveWith((states) =>
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30)))),
+                      shape: MaterialStateProperty.resolveWith(
+                        (states) => RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                    ),
                     icon: Icon(
                       LineIcons.arrow_right,
                       color: Colors.white,
