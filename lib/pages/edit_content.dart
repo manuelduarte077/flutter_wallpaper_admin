@@ -8,15 +8,12 @@ import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
 class EditContent extends StatefulWidget {
-
-  final String imageUrl,timestamp, category;
+  final String imageUrl, timestamp, category;
   final int loves;
 
   EditContent(
       {Key key,
-      @required 
-      this.imageUrl,
-      
+      @required this.imageUrl,
       this.timestamp,
       this.loves,
       this.category})
@@ -24,15 +21,11 @@ class EditContent extends StatefulWidget {
 
   @override
   _EditContentState createState() => _EditContentState(
-      this.imageUrl,
-      this.timestamp,
-      this.loves,
-      this.category);
+      this.imageUrl, this.timestamp, this.loves, this.category);
 }
 
 class _EditContentState extends State<EditContent> {
-  _EditContentState(this.imageUrl,
-      this.timestamp, this.loves, this.category);
+  _EditContentState(this.imageUrl, this.timestamp, this.loves, this.category);
 
   String imageUrl;
   String timestamp;
@@ -45,25 +38,21 @@ class _EditContentState extends State<EditContent> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
   bool updateStarted = false;
 
-
-
   void handleUpdate() async {
     final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
     if (formKey.currentState.validate()) {
       formKey.currentState.save();
       if (ab.userType == 'tester') {
-        openDialog(context, 'You are a Tester', 'Only admin can edit/update items');
+        openDialog(
+            context, 'You are a Tester', 'Only admin can edit/update items');
       } else {
-        setState(()=> updateStarted = true);
+        setState(() => updateStarted = true);
         await updateDatabase();
-        setState(()=> updateStarted = false);
+        setState(() => updateStarted = false);
         openDialog(context, 'Updated Successfully', '');
       }
     }
   }
-
-
-
 
   void handlePreview() async {
     if (formKey.currentState.validate()) {
@@ -72,31 +61,17 @@ class _EditContentState extends State<EditContent> {
     }
   }
 
-
-
-
-
   Future updateDatabase() async {
-    final DocumentReference ref = firestore.collection('contents').doc(timestamp);
-    await ref.update({
-      'image url': imageUrl,
-      'category': category
-    });
+    final DocumentReference ref =
+        firestore.collection('contents').doc(timestamp);
+    await ref.update({'image url': imageUrl, 'category': category});
   }
-
-
-
 
   @override
   void initState() {
     super.initState();
     imageUrlCtrl.text = imageUrl;
   }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -119,10 +94,9 @@ class _EditContentState extends State<EditContent> {
                 ),
                 child: TextButton.icon(
                   style: ButtonStyle(
-                    shape: MaterialStateProperty.resolveWith((states) => RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25)
-                    ))
-                  ),
+                      shape: MaterialStateProperty.resolveWith((states) =>
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25)))),
                   icon: Icon(
                     LineIcons.eye,
                     color: Colors.white,
@@ -135,7 +109,7 @@ class _EditContentState extends State<EditContent> {
                         color: Colors.white,
                         fontSize: 16),
                   ),
-                  onPressed: (){
+                  onPressed: () {
                     handlePreview();
                   },
                 ),
@@ -177,12 +151,12 @@ class _EditContentState extends State<EditContent> {
                   height: 40,
                 ),
                 categoryDropdown(),
-                
                 SizedBox(
                   height: 20,
                 ),
                 TextFormField(
-                  decoration: inputDecoration('Enter Image Url', 'Image', imageUrlCtrl),
+                  decoration:
+                      inputDecoration('Enter Image Url', 'Image', imageUrlCtrl),
                   controller: imageUrlCtrl,
                   validator: (value) {
                     if (value.isEmpty) return 'Value is empty';
@@ -194,27 +168,30 @@ class _EditContentState extends State<EditContent> {
                     });
                   },
                 ),
-                
-                
                 SizedBox(
                   height: 100,
                 ),
                 Container(
                     color: Colors.deepPurpleAccent,
                     height: 45,
-                    child: updateStarted == true 
-                    ? Center(child: Container(height: 35, width: 35,child: CircularProgressIndicator()),)
-                    :  TextButton(
-                        child: Text(
-                          'Update Data',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        onPressed: () {
-                          handleUpdate();
-                        })),
+                    child: updateStarted == true
+                        ? Center(
+                            child: Container(
+                                height: 35,
+                                width: 35,
+                                child: CircularProgressIndicator()),
+                          )
+                        : TextButton(
+                            child: Text(
+                              'Update Data',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            onPressed: () {
+                              handleUpdate();
+                            })),
                 SizedBox(
                   height: 200,
                 ),
@@ -223,8 +200,6 @@ class _EditContentState extends State<EditContent> {
       ),
     );
   }
-
-
 
   Widget categoryDropdown() {
     final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
