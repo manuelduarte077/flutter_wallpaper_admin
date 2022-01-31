@@ -3,6 +3,6 @@
 class Config {
   final String appName = 'Wall-E'; //app name
 
-  final String testerPassword = 'tester'; //testing password
+  final String testerPassword = '123456'; //testing password
   //don't use this password in the database
 }
