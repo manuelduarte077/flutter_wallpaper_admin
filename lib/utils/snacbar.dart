@@ -1,10 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 
-void openSnacbar(_scaffoldKey, snacMessage){
-    _scaffoldKey.currentState.showSnackBar(
-      SnackBar(
+void openSnacbar(_scaffoldKey, snacMessage) {
+  _scaffoldKey.currentState.showSnackBar(SnackBar(
     content: Container(
       alignment: Alignment.centerLeft,
       height: 60,
@@ -20,7 +17,5 @@ void openSnacbar(_scaffoldKey, snacMessage){
       textColor: Colors.blueAccent,
       onPressed: () {},
     ),
-  )
-    );
-  
-  }
+  ));
+}

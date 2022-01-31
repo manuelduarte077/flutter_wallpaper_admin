@@ -10,8 +10,6 @@ class UsersPage extends StatefulWidget {
 }
 
 class _UsersPageState extends State<UsersPage> {
-
-
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   ScrollController controller;
@@ -88,7 +86,10 @@ class _UsersPageState extends State<UsersPage> {
           borderRadius: BorderRadius.circular(0),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.grey[300], blurRadius: 10, offset: Offset(3, 3))
+              color: Colors.grey[300],
+              blurRadius: 10,
+              offset: Offset(3, 3),
+            )
           ],
         ),
         child: Column(
@@ -106,8 +107,9 @@ class _UsersPageState extends State<UsersPage> {
               height: 3,
               width: 50,
               decoration: BoxDecoration(
-                  color: Colors.indigoAccent,
-                  borderRadius: BorderRadius.circular(15)),
+                color: Colors.indigoAccent,
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
             Expanded(
               child: RefreshIndicator(
@@ -124,9 +126,10 @@ class _UsersPageState extends State<UsersPage> {
                       child: new Opacity(
                         opacity: _isLoading ? 1.0 : 0.0,
                         child: new SizedBox(
-                            width: 32.0,
-                            height: 32.0,
-                            child: new CircularProgressIndicator()),
+                          width: 32.0,
+                          height: 32.0,
+                          child: new CircularProgressIndicator(),
+                        ),
                       ),
                     );
                   },
@@ -148,11 +151,11 @@ class _UsersPageState extends State<UsersPage> {
     String uid = d['uid'];
     String name = d['name'];
     return ListTile(
-      leading: imageUrl == null || imageUrl.isEmpty 
-      ? CircleAvatar()
-      : CircleAvatar(
-        backgroundImage: NetworkImage(imageUrl),
-      ),
+      leading: imageUrl == null || imageUrl.isEmpty
+          ? CircleAvatar()
+          : CircleAvatar(
+              backgroundImage: NetworkImage(imageUrl),
+            ),
       title: Text(
         name,
         style: TextStyle(fontWeight: FontWeight.w600),

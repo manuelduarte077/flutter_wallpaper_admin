@@ -11,37 +11,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider<AdminBloc>(create: (context) => AdminBloc()),
-    ],
-    child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Muli',
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-          textTheme: TextTheme(
-            headline6: TextStyle(
-              fontFamily: 'Muli', 
-              color: Colors.grey[900],fontWeight: FontWeight.w700, fontSize: 18),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AdminBloc>(create: (context) => AdminBloc()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'Muli',
+          appBarTheme: AppBarTheme(
+            color: Colors.white,
+            textTheme: TextTheme(
+              headline6: TextStyle(
+                fontFamily: 'Muli',
+                color: Colors.grey[900],
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
+            elevation: 0,
+            actionsIconTheme: IconThemeData(
+              color: Colors.grey[900],
+            ),
+            iconTheme: IconThemeData(color: Colors.grey[900]),
           ),
-          elevation: 0,
-          actionsIconTheme: IconThemeData(
-            color: Colors.grey[900],
-          ),
-          iconTheme: IconThemeData(
-            color: Colors.grey[900]
-          )
         ),
-        
+        home: MyApp1(),
       ),
-      home: MyApp1(),
-    ),
-    
-    
-    
-    
-    
     );
   }
 }

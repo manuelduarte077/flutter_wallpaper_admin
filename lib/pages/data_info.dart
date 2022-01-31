@@ -10,7 +10,6 @@ class DataInfoPage extends StatefulWidget {
 }
 
 class _DataInfoPageState extends State<DataInfoPage> {
-  
   Future users;
   Future contents;
   Future notifications;
@@ -20,7 +19,8 @@ class _DataInfoPageState extends State<DataInfoPage> {
   initData() async {
     users = context.read<AdminBloc>().getTotalDocuments('users_count');
     contents = context.read<AdminBloc>().getTotalDocuments('contents_count');
-    categories = context.read<AdminBloc>().getTotalDocuments('categories_count');
+    categories =
+        context.read<AdminBloc>().getTotalDocuments('categories_count');
   }
 
   @override
