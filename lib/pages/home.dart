@@ -137,101 +137,107 @@ class _HomePageState extends State<HomePage> {
 
   Widget _appBar(ab) {
     return PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: Container(
-          height: 60,
-          padding: EdgeInsets.only(left: 20, right: 20),
-          decoration: BoxDecoration(color: Colors.white, boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey[300], blurRadius: 10, offset: Offset(0, 5))
-          ]),
-          child: Row(
-            children: <Widget>[
-              RichText(
-                  text: TextSpan(
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.deepPurpleAccent,
-                          fontFamily: 'Muli'),
-                      text: Config().appName,
-                      children: <TextSpan>[
-                    TextSpan(
-                        text: ' - Admin Panel',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey[800],
-                            fontFamily: 'Muli'))
-                  ])),
-              Spacer(),
-              Container(
-                padding:
-                    EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
-                decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          color: Colors.grey[400],
-                          blurRadius: 2,
-                          offset: Offset(0, 0))
-                    ]),
-                child: TextButton.icon(
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.resolveWith((states) =>
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)))),
-                  icon: Icon(
-                    LineIcons.sign_out,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                  label: Text(
-                    'Logout',
+      preferredSize: Size.fromHeight(80),
+      child: Container(
+        height: 60,
+        padding: EdgeInsets.only(left: 20, right: 20),
+        decoration: BoxDecoration(color: Colors.white, boxShadow: <BoxShadow>[
+          BoxShadow(
+              color: Colors.grey[300], blurRadius: 10, offset: Offset(0, 5))
+        ]),
+        child: Row(
+          children: <Widget>[
+            RichText(
+                text: TextSpan(
                     style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        fontSize: 16),
-                  ),
-                  onPressed: () => handleLogOut(),
-                ),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Container(
-                margin: EdgeInsets.all(5),
-                padding: EdgeInsets.only(left: 10, right: 10),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.deepPurpleAccent),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextButton.icon(
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.resolveWith((states) =>
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)))),
-                  icon: Icon(
-                    LineIcons.user,
-                    color: Colors.grey[800],
-                    size: 20,
-                  ),
-                  label: Text(
-                    'Signed as ${ab.userType}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
                         color: Colors.deepPurpleAccent,
-                        fontSize: 16),
+                        fontFamily: 'Muli'),
+                    text: Config().appName,
+                    children: <TextSpan>[
+                  TextSpan(
+                      text: ' - Admin Panel',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[800],
+                          fontFamily: 'Muli'))
+                ])),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
+              decoration: BoxDecoration(
+                  color: Colors.deepPurpleAccent,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                        color: Colors.grey[400],
+                        blurRadius: 2,
+                        offset: Offset(0, 0))
+                  ]),
+              child: TextButton.icon(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.resolveWith(
+                    (states) => RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
-                  onPressed: () => null,
                 ),
+                icon: Icon(
+                  LineIcons.sign_out,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                label: Text(
+                  'Logout',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                      fontSize: 16),
+                ),
+                onPressed: () => handleLogOut(),
               ),
-              SizedBox(
-                width: 20,
-              )
-            ],
-          ),
-        ));
+            ),
+            SizedBox(
+              width: 8,
+            ),
+            Container(
+              margin: EdgeInsets.all(5),
+              padding: EdgeInsets.only(left: 10, right: 10),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.deepPurpleAccent),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: TextButton.icon(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.resolveWith(
+                    (states) => RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                ),
+                icon: Icon(
+                  LineIcons.user,
+                  color: Colors.grey[800],
+                  size: 20,
+                ),
+                label: Text(
+                  'Signed as ${ab.userType}',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.deepPurpleAccent,
+                      fontSize: 16),
+                ),
+                onPressed: () => null,
+              ),
+            ),
+            SizedBox(
+              width: 20,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

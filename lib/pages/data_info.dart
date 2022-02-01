@@ -83,7 +83,10 @@ class _DataInfoPageState extends State<DataInfoPage> {
         borderRadius: BorderRadius.circular(0),
         boxShadow: <BoxShadow>[
           BoxShadow(
-              color: Colors.grey[300], blurRadius: 10, offset: Offset(3, 3))
+            color: Colors.grey[300],
+            blurRadius: 10,
+            offset: Offset(3, 3),
+          )
         ],
       ),
       child: Column(

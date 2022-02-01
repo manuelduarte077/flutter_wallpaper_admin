@@ -16,7 +16,10 @@ Widget emptyPage(icon, messgae) {
         Text(
           messgae,
           style: TextStyle(
-              fontSize: 18, color: Colors.grey, fontWeight: FontWeight.w600),
+            fontSize: 18,
+            color: Colors.grey,
+            fontWeight: FontWeight.w600,
+          ),
         )
       ],
     ),
