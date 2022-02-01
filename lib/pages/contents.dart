@@ -113,19 +113,23 @@ class _ContentsPageState extends State<ContentsPage> {
             contentPadding: EdgeInsets.all(50),
             elevation: 0,
             children: <Widget>[
-              Text('Delete?',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900)),
+              Text(
+                'Delete?',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900),
+              ),
               SizedBox(
                 height: 10,
               ),
-              Text('Want to delete this item from the database?',
-                  style: TextStyle(
-                      color: Colors.grey[900],
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700)),
+              Text(
+                'Want to delete this item from the database?',
+                style: TextStyle(
+                    color: Colors.grey[900],
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700),
+              ),
               SizedBox(
                 height: 30,
               ),

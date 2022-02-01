@@ -109,7 +109,10 @@ class _CategoryPageState extends State<CategoryPage> {
             borderRadius: BorderRadius.circular(0),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Colors.grey[300], blurRadius: 10, offset: Offset(3, 3))
+                color: Colors.grey[300],
+                blurRadius: 10,
+                offset: Offset(3, 3),
+              )
             ],
           ),
           child: ab.categories.isEmpty
@@ -136,11 +139,12 @@ class _CategoryPageState extends State<CategoryPage> {
                 height: 150,
                 width: MediaQuery.of(context).size.width * 0.80,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey[200]),
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        image: NetworkImage(d[index]['thumbnail']),
-                        fit: BoxFit.cover)),
+                  border: Border.all(color: Colors.grey[200]),
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: NetworkImage(d[index]['thumbnail']),
+                      fit: BoxFit.cover),
+                ),
                 child: Text(
                   d[index]['name'].toUpperCase(),
                   style: TextStyle(

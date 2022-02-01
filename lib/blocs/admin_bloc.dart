@@ -114,7 +114,7 @@ class AdminBloc extends ChangeNotifier {
 
   Future setSignInForTesting() async {
     _testing = true;
-    _userType = 'tester';
+    _userType = '123456';
     notifyListeners();
   }
 }

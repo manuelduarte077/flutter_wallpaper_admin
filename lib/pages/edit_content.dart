@@ -94,9 +94,12 @@ class _EditContentState extends State<EditContent> {
                 ),
                 child: TextButton.icon(
                   style: ButtonStyle(
-                      shape: MaterialStateProperty.resolveWith((states) =>
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25)))),
+                    shape: MaterialStateProperty.resolveWith(
+                      (states) => RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                  ),
                   icon: Icon(
                     LineIcons.eye,
                     color: Colors.white,
@@ -133,70 +136,77 @@ class _EditContentState extends State<EditContent> {
           borderRadius: BorderRadius.circular(0),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.grey[300], blurRadius: 10, offset: Offset(3, 3))
+              color: Colors.grey[300],
+              blurRadius: 10,
+              offset: Offset(3, 3),
+            )
           ],
         ),
         child: Form(
-            key: formKey,
-            child: ListView(
-              children: <Widget>[
-                SizedBox(
-                  height: h * 0.10,
-                ),
-                Text(
-                  'Edit Content',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                categoryDropdown(),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  decoration:
-                      inputDecoration('Enter Image Url', 'Image', imageUrlCtrl),
-                  controller: imageUrlCtrl,
-                  validator: (value) {
-                    if (value.isEmpty) return 'Value is empty';
-                    return null;
-                  },
-                  onChanged: (String value) {
-                    setState(() {
-                      imageUrl = value;
-                    });
-                  },
-                ),
-                SizedBox(
-                  height: 100,
-                ),
-                Container(
-                    color: Colors.deepPurpleAccent,
-                    height: 45,
-                    child: updateStarted == true
-                        ? Center(
-                            child: Container(
-                                height: 35,
-                                width: 35,
-                                child: CircularProgressIndicator()),
-                          )
-                        : TextButton(
-                            child: Text(
-                              'Update Data',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            onPressed: () {
-                              handleUpdate();
-                            })),
-                SizedBox(
-                  height: 200,
-                ),
-              ],
-            )),
+          key: formKey,
+          child: ListView(
+            children: <Widget>[
+              SizedBox(
+                height: h * 0.10,
+              ),
+              Text(
+                'Edit Content',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              categoryDropdown(),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                decoration:
+                    inputDecoration('Enter Image Url', 'Image', imageUrlCtrl),
+                controller: imageUrlCtrl,
+                validator: (value) {
+                  if (value.isEmpty) return 'Value is empty';
+                  return null;
+                },
+                onChanged: (String value) {
+                  setState(() {
+                    imageUrl = value;
+                  });
+                },
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              Container(
+                color: Colors.deepPurpleAccent,
+                height: 45,
+                child: updateStarted == true
+                    ? Center(
+                        child: Container(
+                          height: 35,
+                          width: 35,
+                          child: CircularProgressIndicator(),
+                        ),
+                      )
+                    : TextButton(
+                        child: Text(
+                          'Update Data',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        onPressed: () {
+                          handleUpdate();
+                        }),
+              ),
+              SizedBox(
+                height: 200,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -205,37 +215,38 @@ class _EditContentState extends State<EditContent> {
     final AdminBloc ab = Provider.of<AdminBloc>(context, listen: false);
 
     return Container(
-        height: 50,
-        padding: EdgeInsets.only(left: 15, right: 15),
-        decoration: BoxDecoration(
-            color: Colors.grey[200],
-            border: Border.all(color: Colors.grey[300]),
-            borderRadius: BorderRadius.circular(30)),
-        child: DropdownButtonFormField(
-            itemHeight: 50,
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[800],
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500),
-            decoration: InputDecoration(border: InputBorder.none),
-            onChanged: (value) {
-              setState(() {
-                category = value;
-              });
-            },
-            onSaved: (value) {
-              setState(() {
-                category = value;
-              });
-            },
-            value: category,
-            hint: Text('Select Category'),
-            items: ab.categoryNames.map((f) {
-              return DropdownMenuItem(
-                child: Text(f),
-                value: f,
-              );
-            }).toList()));
+      height: 50,
+      padding: EdgeInsets.only(left: 15, right: 15),
+      decoration: BoxDecoration(
+          color: Colors.grey[200],
+          border: Border.all(color: Colors.grey[300]),
+          borderRadius: BorderRadius.circular(30)),
+      child: DropdownButtonFormField(
+          itemHeight: 50,
+          style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey[800],
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500),
+          decoration: InputDecoration(border: InputBorder.none),
+          onChanged: (value) {
+            setState(() {
+              category = value;
+            });
+          },
+          onSaved: (value) {
+            setState(() {
+              category = value;
+            });
+          },
+          value: category,
+          hint: Text('Select Category'),
+          items: ab.categoryNames.map((f) {
+            return DropdownMenuItem(
+              child: Text(f),
+              value: f,
+            );
+          }).toList()),
+    );
   }
 }
