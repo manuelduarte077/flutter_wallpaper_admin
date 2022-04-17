@@ -7,7 +7,7 @@
 ## 👨 Developed By
 
 <a href="https://twitter.com/manuelduarte077" target="_blank">
-  <img src="https://simgbb.com/avatar/XkYpK66mzFgS.jpg" width="60" align="right">
+  <img src="https://pbs.twimg.com/profile_images/1503781448700026887/Lso3ZZQi_400x400.jpg" width="60" align="right">
 </a>
 
 **Manuel Duarte**
